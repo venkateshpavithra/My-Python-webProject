@@ -1,0 +1,59 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> academiez Register form</title>
+  <link rel="stylesheet" href="{% static 'landing/css/login.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="navbar login.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main"> 
+		<input type="checkbox" id="chk" aria-hidden="true"> 
+		
+		<div class="Sign up">
+				<!--form starts-->
+				{% for i in messages%}
+				 {% if 'taken' in i.tags %}
+				<h3 style="color:red; float:top; text-align:center; font-size:medium;">{{i}}</h3>
+				 {% endif %}
+				 {% endfor %}	
+				 
+			   <form action="/register_form_submission" method="POST" enctype="multipart/form-data">
+				   {% csrf_token %}
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text" name="first_name" placeholder="First name">
+					<input type="text" name="last_name" placeholder="Last name">
+					<input type="text" name="email_id" placeholder="User name/Email" required="">
+					<input type="password" name="password" placeholder="Password" required="">
+					<input type="file" name="profile_picture" placeholder="profile_picture" required="">
+					<button type="submit">submit</button>
+					<a  href="/" style="color:olivedrab; float:right; margin: 10px;">Home</a> 
+					<a href="/login" style="text-align: right; color: olivedrab; float: left; margin: 2px;">Already have Account?Log in</a>
+				 </form></div></div>
+				  <!--div class="log in">
+					<label for="chk" aria-hidden="true">Login</label>
+					input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>login</button>
+				  </form>
+				</div>
+			</body>
+			</html>
+			<!partial-->
+		</body>
+		</html>
+
+			  
+</body>
+</html>
